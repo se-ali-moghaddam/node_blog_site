@@ -9,7 +9,7 @@
 #container{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 7.5% auto 7.5%;
+    grid-template-rows: 7.4% auto 7.4%;
     max-width: 1560px;
     height: 100%;
     margin: auto;
