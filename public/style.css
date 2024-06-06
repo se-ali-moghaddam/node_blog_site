@@ -5,3 +5,46 @@
     box-sizing: border-box;
     overflow-x: hidden;
 }
+
+#container{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-template-rows: 20% auto 20%;
+    max-width: 1560px;
+    margin: auto;
+}
+
+header{
+    grid-column: 1/span 12;
+    padding: 1%;
+}
+
+ul#navbar-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+}
+
+#navbar-list > li.item{
+    margin-right: 2%;
+}
+
+#navbar-list > li.item:nth-last-child(2){
+    margin-left: auto;
+    margin-right: 0%;
+}
+
+#navbar-list > li.item:nth-last-child(1)::before{
+    content: "|";
+    margin: 0px 10px;
+}
+
+#navbar-list > li.item:hover{
+    color: crimson;
+    cursor: pointer;
+}
+
+#navbar-list > li.item:hover:nth-last-child(1)::before{
+    color: black;
+}
