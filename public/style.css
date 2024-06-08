@@ -6,6 +6,16 @@
     overflow-x: hidden;
 }
 
+a:link,
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+h3{
+    font-size: 1.2rem;
+}
+
 #container{
     display: grid;
     grid-template-columns: repeat(12, 1fr);
@@ -33,6 +43,10 @@ ul#navbar-list{
     padding: 1%;
 }
 
+#navbar-list > li.item > a{
+   color: white;
+}
+
 #navbar-list > li.item:nth-last-child(2){
     margin-left: auto;
     margin-right: 0%;
@@ -45,6 +59,7 @@ ul#navbar-list{
 #navbar-list > li.item:nth-last-child(1)::before{
     content: "|";
     margin-right: 10px;
+    background-color: transparent;
 }
 
 #navbar-list > li.item:hover{
@@ -54,12 +69,40 @@ ul#navbar-list{
     border-bottom: 2px solid crimson;
 }
 
+#navbar-list > li.item:hover > a{
+    color: crimson;
+    font-weight: bold;
+}
+
 #navbar-list > li.item:hover:nth-last-child(1)::before{
     color: white;
 }
 
 main{
     padding: 5%;
+    grid-column: 1/span 12;
+}
+
+section#recent-blogs{   
+    height: 100%;
+}
+
+#recent-blogs > ul#blogs-list{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#blogs-list > .blog{
+    padding: 1%;
+    margin: 1% 0%;
+    border-left: 5px solid crimson;
+}
+
+#blogs-list > .blog:hover{
+    border-left-width: 10px;
+    transition: border-left-width .2s;
 }
 
 footer{
@@ -70,4 +113,9 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+footer:hover{
+    color: crimson;
+    cursor: not-allowed;
 }
