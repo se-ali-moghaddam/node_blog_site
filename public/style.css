@@ -6,10 +6,18 @@
     overflow-x: hidden;
 }
 
+hr{
+    margin: 1% 0%;
+}
+
 a:link,
 a:visited{
     text-decoration: none;
     color: black;
+}
+
+h1{
+    font-size: 2rem;
 }
 
 h3{
@@ -71,7 +79,6 @@ ul#navbar-list{
 
 #navbar-list > li.item:hover > a{
     color: crimson;
-    font-weight: bold;
 }
 
 #navbar-list > li.item:hover:nth-last-child(1)::before{
@@ -118,4 +125,75 @@ footer{
 footer:hover{
     color: crimson;
     cursor: not-allowed;
+}
+
+div#blog-details-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a#remove-blog{
+    padding: .5%;
+    background-color: crimson;
+    border-radius: 5px;
+    color: white;
+}
+
+a#remove-blog:hover{
+    background-color: rgb(181, 16, 49);
+    cursor: pointer;
+}
+
+form#add-blog-form{
+    display: flex;
+    max-width: 40%;
+    margin: auto;
+    padding: 3%;
+    border-radius: 25px;
+    box-shadow: 0px 0px 25px rgba(164, 164, 164, 0.453);
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+div.input-group{
+    display: flex;
+    width: 100%;
+    margin: 2% 0%;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+div.input-group > label{
+    margin-bottom: 1%;
+}
+
+input,
+textarea{
+    padding: 1%;
+    border-radius: 5px;
+    border: 1px solid rgba(220, 20, 60, 0.534);
+}
+
+input:focus,
+textarea:focus{
+    outline: none;
+    border: 2px solid crimson;
+}
+
+form#add-blog-form > hr{
+    color: rgba(220, 20, 60, 0.507);
+}
+
+input[type= 'submit']{
+    color: white;
+    cursor: pointer;
+    padding: 2%;
+    background-color: crimson;
+    border: none;
+    border-radius: 10px;
+}
+
+input[type= 'submit']:hover{
+    background-color: rgb(181, 16, 49);
 }
