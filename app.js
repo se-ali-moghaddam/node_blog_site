@@ -11,4 +11,8 @@ app.use(expressLayouts);
 app.set('layout', './layouts/default-layout');
 app.set('view engine', 'ejs');
 
-app.use(blogRoutes);
+app.get('/', (req, res) => {
+    res.render('index', {title: 'Home'});
+});
+
+app.use('/blogs', blogRoutes);
