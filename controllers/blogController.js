@@ -1,3 +1,5 @@
+const blog = require('../models/blogModel');
+
 const addBlog = (req, res) => {
     res.render('create-blog', {title: 'Create New Blog'});
 };
