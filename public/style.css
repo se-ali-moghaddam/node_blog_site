@@ -133,14 +133,15 @@ div#blog-details-title{
     align-items: center;
 }
 
-a#remove-blog{
+button#remove-blog{
     padding: .5%;
     background-color: crimson;
     border-radius: 5px;
     color: white;
+    border: none;
 }
 
-a#remove-blog:hover{
+button#remove-blog:hover{
     background-color: rgb(181, 16, 49);
     cursor: pointer;
 }

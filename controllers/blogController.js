@@ -1,14 +1,37 @@
-const blog = require('../models/blogModel');
+const Blog = require('../models/blogModel');
 
-const addBlog = (req, res) => {
+const addBlogGet = (req, res) => {
     res.render('create-blog', {title: 'Create New Blog'});
 };
 
+const addBlogPost = (req, res) => {
+    const blog = new Blog(req.body);
+    blog.save(req.body)
+        .then(() => res.redirect('/'))
+        .catch(err => console.log(err));
+};
+
 const getBlog = (req, res) => {
-    res.render('blog', {title: `Blog ${req.params.id}`});
+    Blog.findById(req.params.id)
+        .then(result => {
+            res.render('blog', {title: `Blog ${result.title}`, result});
+        })
+        .catch();
+};
+
+const removeBlog = (req, res) => {
+    Blog.findByIdAndDelete(req.params.id)
+        .then(result => {
+            res.json({
+                redirect : '/'
+            });
+        })
+        .catch(err => console.log(err));
 };
 
 module.exports = {
-    addBlog,
-    getBlog
+    addBlogGet,
+    addBlogPost,
+    getBlog,
+    removeBlog
 }

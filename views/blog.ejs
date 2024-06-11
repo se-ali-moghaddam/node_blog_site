@@ -1,6 +1,21 @@
 <div id="blog-details-title">
-    <h1>Blog Title</h1>
-    <a href="/blogs/remove/id" id="remove-blog">Remove</a>
+    <h1><%- result.title %></h1>
+    <button id="remove-blog" data-blog="<%- result._id %>">Remove</button>
 </div>
 <hr>
-<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores iusto similique nemo, quia reiciendis voluptate dolore. Minima sit impedit recusandae nobis odit placeat, excepturi consequatur eius nostrum atque fugiat laudantium voluptatum vero vitae illum eligendi? Explicabo repellendus, quia quisquam, totam voluptates assumenda voluptatum est rerum provident expedita at incidunt quos officiis ad, hic quas voluptatibus rem. Quibusdam, numquam facere minima maiores blanditiis architecto ut totam eveniet et dignissimos porro vel mollitia inventore magnam quaerat iure labore dicta sed! Quae eveniet dolorem iure inventore, cumque tempore sint in neque aut laudantium sapiente deserunt nihil autem et? Nulla est quae in officia sequi dolorem tempora animi, illum libero dolorum eaque vitae, ipsa ratione excepturi explicabo harum ullam id provident assumenda. Nam repellendus totam qui, soluta, tempora sapiente ullam beatae et eius similique enim officiis fugit cupiditate laborum non aspernatur eveniet possimus delectus, placeat corporis voluptas. Recusandae, earum natus asperiores nesciunt, dolore provident, reiciendis modi blanditiis architecto corporis ut nobis nostrum laudantium? Dolorem, doloremque pariatur nam corrupti reprehenderit rerum, blanditiis cum quam ducimus earum facere repellendus incidunt impedit accusantium architecto vero nobis nisi quis optio voluptas, nesciunt at minima officiis quos! Quam eveniet consectetur sit eius dicta, laboriosam reprehenderit incidunt aut magni neque.</p>
+<p><%- result.body %></p>
+
+<script>
+    const rmBtn = document.querySelector('#remove-blog');
+    const endpoint = `/blogs/remove/${rmBtn.dataset.blog}`;
+
+    rmBtn.addEventListener('click', () => {
+        console.log('Click !');
+        fetch(endpoint, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => window.location.href = data.redirect)
+        .catch(err => console.log(err));
+    });
+</script>

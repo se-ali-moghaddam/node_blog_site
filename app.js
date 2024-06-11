@@ -2,6 +2,8 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const blogRoutes = require('./routes/blogRoutes');
 const mongoose = require('mongoose');
+const Blog = require('./models/blogModel');
+
 
 const mongoDbUrl = 'mongodb+srv://db_admin:test1234@myfirstcluster.lypywih.mongodb.net/node_blog_site_exam?retryWrites=true&w=majority&appName=MyFirstCluster';
 
@@ -19,12 +21,17 @@ mongoose.connect(mongoDbUrl)
 
 app.use(express.static('public'));
 app.use(expressLayouts);
+app.use(express.urlencoded({extended: true}));
 
 app.set('layout', './layouts/default-layout');
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
-    res.render('index', {title: 'Home'});
+    Blog.find()
+        .then(result => {
+            res.render('index', {title: 'Home', result});
+        })
+        .catch(err => console.log(err));
 });
 
 app.use('/blogs', blogRoutes);
